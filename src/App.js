@@ -1,20 +1,29 @@
-import React, { Component } from "react";
-import "./App.css";
-import Login from "./Components/Login";
-import LoggedIn from "./Components/LoggedIn";
+import React, { Component } from 'react';
+import './App.css';
+import Login from './Components/Login';
+import LoggedIn from './Components/LoggedIn';
 
 class App extends Component {
-    state = {
-        loggedIn: true
-    };
+    constructor(props) {
+        super(props);
+        this.state = { loggedIn: false };
+        this.handleLoginClick = this.handleLoginClick.bind(this);
+    }
 
-  render() {
-    return (
-      <section className="main">
-        {!this.state.loggedIn ? <Login /> : <LoggedIn />};
-      </section>
-    );
-  }
+    handleLoginClick() {
+        this.setState(() => ({ loggedIn: true }));
+    }
+
+    render() {
+        return (
+            <section className="main">
+                {!this.state.loggedIn
+                    ? <Login handleLoginClick={this.handleLoginClick} />
+                    : <LoggedIn />}
+                ;
+            </section>
+        );
+    }
 }
 
 export default App;
