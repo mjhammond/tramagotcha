@@ -3,6 +3,7 @@ import axios from 'axios';
 import "./loggedin.css";
 import Header from "../Header";
 import Tamagotchi from "../Tamagotchi";
+import Geolocation from "../Geolocation";
 
 class LoggedIn extends React.Component {
     constructor(props) {
@@ -23,6 +24,7 @@ class LoggedIn extends React.Component {
         return (
             <div className="login">
               <Header />
+              <Geolocation />
               <Tamagotchi id={this.state.petID} />
             </div>
         );
