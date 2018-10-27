@@ -9,7 +9,7 @@ import Display from '../Display';
 class LoggedIn extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { petID: 2, currentXp: 0, username: '' };
+        this.state = { petID: 2, xp: 0, username: '' };
     }
 
     componentDidMount() {

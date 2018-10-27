@@ -21,7 +21,7 @@ class Geolocation extends React.Component {
     }
 
     postGeolocation() {
-        axios.get(`http://localhost:6006/score?ID=&lat=${this.state.lat}&long=${this.state.long}`).then(res => {
+        axios.get(`http://localhost:6006/score?ID=${this.props.userID}&lat=${this.state.lat}&long=${this.state.long}`).then(res => {
             console.log(res);
             return res;
         }).then(json => console.log(JSON.stringify(json)))
