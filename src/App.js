@@ -6,7 +6,7 @@ import LoggedIn from './Components/LoggedIn';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = { loggedIn: false };
+        this.state = { loggedIn: true };
         this.handleLoginClick = this.handleLoginClick.bind(this);
     }
 
@@ -19,7 +19,7 @@ class App extends Component {
             <section className="main">
                 {!this.state.loggedIn
                     ? <Login handleLoginClick={this.handleLoginClick} />
-                    : <LoggedIn />}
+                    : <LoggedIn userID={4} />}
                 ;
             </section>
         );
