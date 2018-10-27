@@ -11,15 +11,6 @@ const init = async () => {
     console.log(`Server running at: ${server.info.uri}`);
 };
 
-server.route({
-    method: 'GET',
-    path: '/',
-    handler: (request, h) => {
-
-        return 'Tramagotcha!';
-    }
-});
-
 process.on('unhandledRejection', (err) => {
 
     console.log(err);
