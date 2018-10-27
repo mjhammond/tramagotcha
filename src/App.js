@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import "./app.css";
+import "./App.css";
 import Login from "./Components/Login";
-import Tamagotchi from "./Components/Tamagotchi";
+import LoggedIn from "./Components/LoggedIn";
 
 class App extends Component {
     state = {
-        loggedIn: false
+        loggedIn: true
     };
 
   render() {
     return (
       <section className="main">
-        {!this.state.loggedIn ? <Login /> : <Tamagotchi id={1} />};
+        {!this.state.loggedIn ? <Login /> : <LoggedIn />};
       </section>
     );
   }
