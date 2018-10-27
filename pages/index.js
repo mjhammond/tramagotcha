@@ -1,3 +1,3 @@
-export default () => (
-    <div>Hello tramagotcha from Next.js!</div>
-)
+import App from "./App";
+
+export default () => <App />;
