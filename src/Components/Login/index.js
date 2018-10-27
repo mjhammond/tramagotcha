@@ -1,5 +1,6 @@
 import React from "react";
 import "./login.css";
+import Header from "../Header";
 import { Link } from "react-router";
 
 class Login extends React.Component {
@@ -17,6 +18,7 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login">
+        <Header />
         <div className="card">
           <div className="card-content">
             <div className="content">
@@ -52,7 +54,7 @@ class Login extends React.Component {
                   <i className="fas fa-lock" />
                 </span>
               </div>
-              <button className="button" id="woop">
+              <button className="button" id="login-button">
                 Login
               </button>
             </div>
