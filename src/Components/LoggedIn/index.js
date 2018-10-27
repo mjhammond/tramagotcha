@@ -24,7 +24,7 @@ class LoggedIn extends React.Component {
         return (
             <div className="login">
               <Header />
-              <Geolocation />
+              <Geolocation userID={this.props.userID} />
               <Tamagotchi id={this.state.petID} />
             </div>
         );

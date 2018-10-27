@@ -19,7 +19,7 @@ class App extends Component {
             <section className="main">
                 {!this.state.loggedIn
                     ? <Login handleLoginClick={this.handleLoginClick} />
-                    : <LoggedIn userID={4} />}
+                    : <LoggedIn userID={1} />}
                 ;
             </section>
         );
