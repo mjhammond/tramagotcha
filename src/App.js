@@ -4,11 +4,14 @@ import Login from "./Components/Login";
 import Tamagotchi from "./Components/Tamagotchi";
 
 class App extends Component {
+    state = {
+        loggedIn: false
+    };
+
   render() {
     return (
       <section className="main">
-        <Login />;
-        <Tamagotchi id={1} />;
+        {!this.state.loggedIn ? <Login /> : <Tamagotchi id={1} />};
       </section>
     );
   }
