@@ -54,7 +54,7 @@ class Login extends React.Component {
                   <i className="fas fa-lock" />
                 </span>
               </div>
-              <button className="button" id="login-button">
+              <button className="button is-success" id="login-button">
                 Login
               </button>
             </div>
