@@ -1,32 +1,38 @@
 import React from "react";
-import axios from 'axios';
+import axios from "axios";
 import "./loggedin.css";
 import Header from "../Header";
 import Tamagotchi from "../Tamagotchi";
+import UserInfo from "../UserInfo";
 
 class LoggedIn extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { petID: 2 };
-    }
+  constructor(props) {
+    super(props);
+    this.state = { userInfo: {} };
+  }
 
-    componentDidMount() {
-        axios.get(`http://localhost:6006/getUserDetails?ID=${this.props.userID}`).then(res => {
-            console.log(res);
-            this.setState(() => ({ petID: res.data.user.PetId }));
-            return res;
-        }).then(json => console.log(JSON.stringify(json)))
-        .catch(console.error);
-    }
+  componentDidMount() {
+    axios
+      .get(`http://localhost:6006/getUserDetails?ID=${this.props.userID}`)
+      .then(res => {
+        console.log(this);
+        this.setState(() => ({ userInfo: res.data.user }));
+        return res;
+      })
+      .then(json => console.log(JSON.stringify(json)))
+      .catch(console.error);
+  }
 
-    render() {
-        return (
-            <div className="login">
-              <Header />
-              <Tamagotchi id={this.state.petID} />
-            </div>
-        );
-    }
-};
+  render() {
+    const { userInfo } = this.state;
+    return (
+      <div className="loggedIn">
+        <Header />
+        {userInfo.PetId && <Tamagotchi id={userInfo.PetId} />}
+        {userInfo && <UserInfo userInfo={userInfo} />}
+      </div>
+    );
+  }
+}
 
 export default LoggedIn;
