@@ -1,9 +1,10 @@
 import React from 'react';
+import "./geolocation.css";
 
 class Geolocation extends React.Component {
     state = {
-        lat: '',
-        lon: '',
+        lat: 0,
+        lon: 0,
         locationPoller: null,
     };
 
@@ -18,12 +19,19 @@ class Geolocation extends React.Component {
     }
 
     componentDidMount() {
+        this.getGeolocation();
         const locationPoller = setInterval(this.getGeolocation.bind(this), 5000);
         this.locationPoller = locationPoller;
     }
 
+    componentWillUnmount(){
+        clearInterval(this.locationPoller);
+    }
+
     render() {
-        return (<div />);
+        return (<div className="geolocation">
+                Your location: lat {this.state.lat.toFixed(4)}, lon {this.state.lon.toFixed(4)}
+               </div>);
     }
 }
 
