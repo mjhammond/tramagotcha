@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './items.css';
 
-const Item = ({ name, purchased, cost, onClick }) => (
+const Item = ({ name, purchased, cost, onClick, itemID, userID }) => (
     <div key={name} className={`item ${purchased ? 'purchased' : ''}`}>
-      {name} {cost} {!purchased && <span onClick={name => onClick(name)}>Buy</span>}
+      {name} {cost} {!purchased && <span onClick={() => onClick(itemID, userID)}>Buy</span>}
     </div>
 );
 
@@ -13,8 +13,21 @@ class ItemList extends Component {
         items: [],
     };
 
-    buyItem(id) {
-        console.log(id);
+    buyItem(itemID, userID) {
+        console.log(itemID, userID);
+        axios
+            .get(`http://localhost:6006/BuyItems?userId=${userID}&itemId=${itemID}`)
+            .then(res => {
+                console.log(res);
+
+                this.setState(() => ({
+                    items: res.data
+                }));
+
+                return res;
+            })
+        //   .then(json => console.log(JSON.stringify(json)))
+            .catch(console.error);
     }
 
     render() {
@@ -25,6 +38,8 @@ class ItemList extends Component {
                 </div>
                 {this.props.items.map((item, i) => (
                     <Item
+                        itemID={item.Id}
+                        userID={this.props.userID}
                         name={item.Name}
                         purchased={item.purchased}
                         cost={item.Cost}
