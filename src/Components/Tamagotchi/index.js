@@ -2,6 +2,8 @@ import React from "react";
 import Spritesheet from "react-responsive-spritesheet";
 import tamagotchiMap from "../../constants/tamagotchis.js";
 import itemsMap from "../../constants/items";
+import "./tamagotchi.css";
+
 
 const media = {
   mob: {
@@ -60,10 +62,10 @@ class Tamagotchi extends React.Component {
         <section className="column is-one-third" id="firstHalfItems">
           {items &&
             firstColumnItems.map((item, i) => (
-              <img src={`${itemsMap[item.ID]}`} alt="item" key={i} />
+              <img class="itemArt" src={`${itemsMap[item.ID]}`} alt="item" key={i} />
             ))}
         </section>
-        <section className="column is-one-third">
+        <section className="column is-one-third tamagotchi">
           <Spritesheet
             style={getMedia(this.state.windowSize)}
             image={tamagotchiMap[id].image}
@@ -77,7 +79,7 @@ class Tamagotchi extends React.Component {
         <section className="column is-one-third" id="secondHalfItems">
           {items &&
             secondColumnItems.map((item, i) => (
-              <img src={`${itemsMap[item.ID]}`} alt="item" key={i} />
+              <img class="itemArt" src={`${itemsMap[item.ID]}`} alt="item" key={i} />
             ))}
         </section>
       </section>
