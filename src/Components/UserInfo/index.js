@@ -41,10 +41,10 @@ class UserInfo extends React.Component {
   render() {
     const { itemDrawerOpen } = this.state;
     const { userInfo, items } = this.props;
-
+    console.log(userInfo);
     return (
       <div className="userInfo">
-        <UserItems items={items} />
+        {items && <UserItems items={items} />}
         <span className="petName"> {userInfo.petName}</span>
         <section className="columns is-mobile is-gapless" id="userInfo">
           <section className="column">

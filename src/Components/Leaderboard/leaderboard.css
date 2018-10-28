@@ -9,11 +9,15 @@
   top: 0;
   transform: translateX(100%);
   transition: transform 0.3s;
+  font-family: "Press Start 2P", cursive;
+  background-image: url("https://wallpaper-house.com/data/out/6/wallpaper2you_127747.png");
+  background-position-y: 62%;
 }
 
 .chevron {
   margin: 15px;
   font-size: 2rem;
+  color: antiquewhite;
 }
 
 .title {
