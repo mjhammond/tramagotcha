@@ -1,10 +1,11 @@
 import React from "react";
 import itemsMap from "../../constants/items";
+import "./useritems.css";
 
 const UserItems = ({ items }) => (
-  <section className="level is-mobile" id="items">
+  <nav className="level is-mobile" id="items">
     {items.map((item, i) => (
-      <div className="level-item has-text-centered">
+      <div className="level-item has-text-centered" id="woop">
         <img
           className="itemArt"
           src={`${itemsMap[item.ID]}`}
@@ -13,7 +14,7 @@ const UserItems = ({ items }) => (
         />
       </div>
     ))}
-  </section>
+  </nav>
 );
 
 export default UserItems;

@@ -33,7 +33,6 @@ class Geolocation extends React.Component {
       .then(res => {
         return res;
       })
-      .then(json => console.log(JSON.stringify(json)))
       .catch(console.error);
   }
 

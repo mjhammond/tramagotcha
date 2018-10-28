@@ -1,3 +1,7 @@
 .geolocation {
-    color: antiquewhite;
+  position: fixed;
+  bottom: 0;
+  color: antiquewhite;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
