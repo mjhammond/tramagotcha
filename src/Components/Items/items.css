@@ -12,9 +12,11 @@
   /* justify-content: space-between; */
   width: 100%;
   flex-grow: 1;
-  font-size: 1.45rem;
+  font-size: 1rem;
   align-items: center;
+  text-align: center;
   height: 50%;
+  font-family: "Press Start 2P", cursive;
 }
 
 .item {
@@ -26,7 +28,7 @@
 }
 
 .purchased {
-    color: #b5b5b5;
+  color: #b5b5b5;
 }
 
 .open {

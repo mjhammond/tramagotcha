@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  /* background-color: rgb(70, 65, 65); */
+  background-image: url("https://www.ppt-backgrounds.net/uploads/bit-sky-8bit-pixel-art-environment-sky-8bit-pastel-pixelated-sky---wallpaper-background.jpeg");
+  font-family: "Press Start 2P", cursive;
 }
 
 .card {
@@ -30,4 +31,11 @@
 
 #login-button {
   margin: 10px;
+}
+#username {
+  color: black;
+}
+
+#login-button {
+  font-family: "Press Start 2P", cursive;
 }
