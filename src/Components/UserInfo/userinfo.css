@@ -1,0 +1,23 @@
+.userInfo {
+  text-align: center;
+  margin: 20px;
+  padding: 0;
+  width: 80%;
+}
+
+.petName {
+  font-size: 2rem;
+  color: white;
+}
+
+.userInfoSpan {
+  display: flex;
+  flex-wrap: nowrap;
+  width: auto;
+  font-size: 1.5rem;
+}
+
+#userInfo {
+  background-color: yellow;
+  width: 100%;
+}

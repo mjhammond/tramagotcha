@@ -8,7 +8,7 @@ import UserInfo from "../UserInfo";
 class LoggedIn extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { userInfo: {} };
+    this.state = { userInfo: {}, items: [] };
   }
 
   componentDidMount() {
@@ -16,7 +16,10 @@ class LoggedIn extends React.Component {
       .get(`http://localhost:6006/getUserDetails?ID=${this.props.userID}`)
       .then(res => {
         console.log(this);
-        this.setState(() => ({ userInfo: res.data.user }));
+        this.setState(() => ({
+          userInfo: res.data.user,
+          items: res.data.items
+        }));
         return res;
       })
       .then(json => console.log(JSON.stringify(json)))
@@ -24,12 +27,12 @@ class LoggedIn extends React.Component {
   }
 
   render() {
-    const { userInfo } = this.state;
+    const { userInfo, items } = this.state;
     return (
       <div className="loggedIn">
         <Header />
         {userInfo.PetId && <Tamagotchi id={userInfo.PetId} />}
-        {userInfo && <UserInfo userInfo={userInfo} />}
+        {userInfo && items && <UserInfo userInfo={userInfo} items={items} />}
       </div>
     );
   }
