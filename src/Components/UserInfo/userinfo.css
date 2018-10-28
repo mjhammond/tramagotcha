@@ -1,27 +1,41 @@
 .userInfo {
-  text-align: center;
   margin: 20px;
   padding: 0;
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .petName {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
+  outline-color: black;
+  font-weight: bold;
+  font-family: "Press Start 2P", cursive;
 }
 
 .userInfoSpan {
   display: flex;
   flex-wrap: nowrap;
   width: auto;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  font-family: "Press Start 2P", cursive;
+}
+
+#itemsButton {
+  font-family: "Press Start 2P", cursive;
 }
 
 #userInfo {
-  background-color: yellow;
+  background-color: white;
+  border-radius: 10%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .userData {
-    margin: 1rem;
+  margin: 1rem;
 }

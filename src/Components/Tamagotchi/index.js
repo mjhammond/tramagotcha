@@ -1,14 +1,12 @@
 import React from "react";
 import Spritesheet from "react-responsive-spritesheet";
 import tamagotchiMap from "../../constants/tamagotchis.js";
-import itemsMap from "../../constants/items";
 import "./tamagotchi.css";
-
 
 const media = {
   mob: {
-    width: 75,
-    height: 75
+    width: 100,
+    height: 100
   },
   tablet: {
     width: 100,
@@ -55,18 +53,11 @@ class Tamagotchi extends React.Component {
 
   render() {
     const { id, items } = this.props;
-    const firstColumnItems = items.slice(0, items.length / 2);
-    const secondColumnItems = items.slice(items.length / 2);
     return (
-      <section className="columns is-mobile">
-        <section className="column is-one-third" id="firstHalfItems">
-          {items &&
-            firstColumnItems.map((item, i) => (
-              <img class="itemArt" src={`${itemsMap[item.ID]}`} alt="item" key={i} />
-            ))}
-        </section>
-        <section className="column is-one-third tamagotchi">
+      <section>
+        <section className=" tamagotchi">
           <Spritesheet
+            className="poop"
             style={getMedia(this.state.windowSize)}
             image={tamagotchiMap[id].image}
             widthFrame={32}
@@ -75,12 +66,6 @@ class Tamagotchi extends React.Component {
             fps={1}
             loop
           />
-        </section>
-        <section className="column is-one-third" id="secondHalfItems">
-          {items &&
-            secondColumnItems.map((item, i) => (
-              <img class="itemArt" src={`${itemsMap[item.ID]}`} alt="item" key={i} />
-            ))}
         </section>
       </section>
     );

@@ -1,0 +1,9 @@
+.modalmain {
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+.modal {
+  height: 50%;
+}

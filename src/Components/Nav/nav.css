@@ -10,10 +10,16 @@
 #username {
   margin-left: 5px;
   color: antiquewhite;
+  font-size: 1.5rem;
 }
 
 #burger {
   margin-right: 5px;
   padding: 0;
   color: white;
+  font-size: 2rem;
+}
+
+#bee {
+  height: 2rem;
 }

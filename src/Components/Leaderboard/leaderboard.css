@@ -16,6 +16,25 @@
   font-size: 2rem;
 }
 
+.title {
+  text-decoration: underline;
+}
+.leadersColumn {
+  text-align: center;
+}
+
 .open {
   transform: translateX(0);
+}
+
+.leaders {
+  margin: 5px;
+}
+
+.username {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.position {
+  font-weight: bold;
 }

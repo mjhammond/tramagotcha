@@ -1,9 +1,36 @@
 import React from "react";
 import "./leaderboard.css";
+import axios from "axios";
+// import TamagotchiModal from "../TamagotchiModal";
 
 class Leaderboard extends React.Component {
+  state = {
+    leaderboard: [],
+    showModal: false
+  };
+
+  showModalHandler = e => {
+    e.preventDefault();
+    this.setState({ showModal: true });
+  };
+
+  closeModalHandler = () => this.setState({ showModal: false });
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:6006/leaderboard")
+      .then(res => {
+        this.setState(() => ({
+          leaderboard: res.data
+        }));
+        return res;
+      })
+      .catch(console.error);
+  }
   render() {
     const { closeLeaderboard, className } = this.props;
+    const { leaderboard, showModal } = this.state;
+
     return (
       <section className={`leaderBoard ${className}`}>
         <nav id="nav">
@@ -20,6 +47,30 @@ class Leaderboard extends React.Component {
               </h2>
             </div>
           </div>
+        </section>
+        <section className="columns is-mobile leaders">
+          <section className="column">
+            {leaderboard &&
+              leaderboard.map((leader, i) => (
+                <section className="leadersColumn">
+                  <span className="position">{i + 1}</span>
+                  <div
+                    className="card"
+                    onClick={event => this.showModalHandler(event)}
+                  >
+                    <div className="card-content">
+                      <div className="content">
+                        <section className="username">
+                          {leader.username}
+                        </section>
+                        <section className="score">{leader.score}</section>
+                      </div>
+                    </div>
+                  </div>
+                  {/* <TamagotchiModal id={leader.petId} showModal={showModal} /> */}
+                </section>
+              ))}
+          </section>
         </section>
       </section>
     );

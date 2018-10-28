@@ -1,5 +1,6 @@
 import React from "react";
 import "./nav.css";
+import bee from "../../images/bee.png";
 
 import Leaderboard from "../Leaderboard";
 
@@ -28,6 +29,9 @@ class Nav extends React.Component {
         <nav id="nav">
           <section id="username">
             <span>{userInfo.username}</span>
+          </section>
+          <section id="bee">
+            <img className="image is-small" src={bee} alt="bee" />
           </section>
           <section id="burger">
             <span onClick={event => this.leaderboardHandler(event)}>
