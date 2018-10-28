@@ -31,7 +31,6 @@ class Geolocation extends React.Component {
         }&long=${this.state.long}`
       )
       .then(res => {
-        console.log(res);
         return res;
       })
       .then(json => console.log(JSON.stringify(json)))
@@ -49,7 +48,6 @@ class Geolocation extends React.Component {
   }
 
   render() {
-    console.log("wat", this.props.userID);
     return (
       <div className="geolocation">
         Your location: lat {this.state.lat.toFixed(4)}, lon{" "}

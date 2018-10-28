@@ -5,6 +5,7 @@ import Header from "../Header";
 import Tamagotchi from "../Tamagotchi";
 import UserInfo from "../UserInfo";
 import Geolocation from "../Geolocation";
+import itemMap from "../../constants/items";
 
 class LoggedIn extends React.Component {
   constructor(props) {
@@ -16,14 +17,13 @@ class LoggedIn extends React.Component {
     axios
       .get(`http://localhost:6006/getUserDetails?ID=${this.props.userID}`)
       .then(res => {
-        console.log(this);
         this.setState(() => ({
           userInfo: res.data.user,
           items: res.data.items
         }));
         return res;
       })
-      .then(json => console.log(JSON.stringify(json)))
+      //   .then(json => console.log(JSON.stringify(json)))
       .catch(console.error);
   }
 
@@ -32,8 +32,13 @@ class LoggedIn extends React.Component {
     return (
       <div className="loggedIn">
         <Header />
-        {userInfo.PetId && <Tamagotchi id={userInfo.PetId} />}
-        {userInfo && items && <UserInfo userInfo={userInfo} items={items} />}
+        {userInfo.PetId && (
+          <Tamagotchi id={userInfo.PetId} items={items} itemMap={itemMap} />
+        )}
+        {userInfo &&
+          items && (
+            <UserInfo userInfo={userInfo} items={items} itemMap={itemMap} />
+          )}
         {userInfo && <Geolocation userID={userInfo.ID} />}
       </div>
     );

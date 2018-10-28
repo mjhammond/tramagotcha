@@ -1,6 +1,7 @@
 import React from "react";
 import Spritesheet from "react-responsive-spritesheet";
 import tamagotchiMap from "../../constants/tamagotchis.js";
+import itemsMap from "../../constants/items";
 
 const media = {
   mob: {
@@ -51,17 +52,35 @@ class Tamagotchi extends React.Component {
   resizer = () => this.setState({ windowSize: window.innerWidth });
 
   render() {
-    const { id } = this.props;
+    const { id, items } = this.props;
+    const firstColumnItems = items.slice(0, items.length / 2);
+    const secondColumnItems = items.slice(items.length / 2);
     return (
-      <Spritesheet
-        style={getMedia(this.state.windowSize)}
-        image={tamagotchiMap[id].image}
-        widthFrame={32}
-        heightFrame={32}
-        steps={tamagotchiMap[id].frames}
-        fps={1}
-        loop
-      />
+      <section className="columns is-mobile">
+        <section className="column is-one-third" id="firstHalfItems">
+          {items &&
+            firstColumnItems.map((item, i) => (
+              <img src={`${itemsMap[item.ID]}`} alt="item" key={i} />
+            ))}
+        </section>
+        <section className="column is-one-third">
+          <Spritesheet
+            style={getMedia(this.state.windowSize)}
+            image={tamagotchiMap[id].image}
+            widthFrame={32}
+            heightFrame={32}
+            steps={tamagotchiMap[id].frames}
+            fps={1}
+            loop
+          />
+        </section>
+        <section className="column is-one-third" id="secondHalfItems">
+          {items &&
+            secondColumnItems.map((item, i) => (
+              <img src={`${itemsMap[item.ID]}`} alt="item" key={i} />
+            ))}
+        </section>
+      </section>
     );
   }
 }
