@@ -34,7 +34,7 @@ class LoggedIn extends React.Component {
         <Header />
         {userInfo.PetId && <Tamagotchi id={userInfo.PetId} />}
         {userInfo && items && <UserInfo userInfo={userInfo} items={items} />}
-        {userInfo && <Geolocation userID={userInfo.userID} />}
+        {userInfo && <Geolocation userID={userInfo.ID} />}
       </div>
     );
   }
