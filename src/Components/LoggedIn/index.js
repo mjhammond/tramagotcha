@@ -6,6 +6,7 @@ import Tamagotchi from "../Tamagotchi";
 import UserInfo from "../UserInfo";
 import Geolocation from "../Geolocation";
 import itemMap from "../../constants/items";
+import Nav from "../Nav";
 
 class LoggedIn extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class LoggedIn extends React.Component {
     const { userInfo, items } = this.state;
     return (
       <div className="loggedIn">
+        {UserInfo && <Nav userInfo={userInfo} />}
         <Header />
         {userInfo.PetId && (
           <Tamagotchi id={userInfo.PetId} items={items} itemMap={itemMap} />
