@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './items.css';
 
-const Item = ({ name, purchased, cost }) => (
+const Item = ({ name, purchased, cost, onClick }) => (
     <div key={name} className={`item ${purchased ? 'purchased' : ''}`}>
-      {name} {cost} {!purchased && <span>Buy</span>}
-    </div>);
+      {name} {cost} {!purchased && <span onClick={name => onClick(name)}>Buy</span>}
+    </div>
+);
 
 class ItemList extends Component {
     state = {
-        items: []
+        items: [],
+    };
+
+    buyItem(id) {
+        console.log(id);
     }
 
     render() {
@@ -19,7 +24,12 @@ class ItemList extends Component {
                     <i className="fas fa-bars" />
                 </div>
                 {this.props.items.map((item, i) => (
-                    <Item name={item.Name} purchased={item.purchased} cost={item.Cost} />
+                    <Item
+                        name={item.Name}
+                        purchased={item.purchased}
+                        cost={item.Cost}
+                        onClick={this.buyItem}
+                    />
                 ))}
             </div>
         );
