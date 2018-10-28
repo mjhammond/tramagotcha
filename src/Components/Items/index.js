@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './items.css';
 
+const Item = ({ name, purchased, cost }) => (
+    <div key={name} className={`item ${purchased ? 'purchased' : ''}`}>
+      {name} {cost} {!purchased && <span>Buy</span>}
+    </div>);
+
 class ItemList extends Component {
     state = {
         items: []
@@ -10,30 +15,15 @@ class ItemList extends Component {
     render() {
         return (
             <div className={`items ${this.props.className}`}>
-                <span className="bobsBurgers" onClick={event => this.props.closeItemDrawer(event)}>
+                <div className="bobsBurgers" onClick={event => this.props.closeItemDrawer(event)}>
                     <i className="fas fa-bars" />
-                </span>
+                </div>
                 {this.props.items.map((item, i) => (
-                    <span key={i} className="item">
-                        {item.Name}
-                    </span>
+                    <Item name={item.Name} purchased={item.purchased} cost={item.Cost} />
                 ))}
             </div>
         );
     }
 }
-
-// const ItemList = ({ className, items, closeItemDrawer }) => (
-//   <div className={`items ${className}`}>
-//     <span className="bobsBurgers" onClick={event => closeItemDrawer(event)}>
-//       <i className="fas fa-bars" />
-//     </span>
-//     {items.map((item, i) => (
-//       <span key={i} className="item">
-//         {item.itemName}
-//       </span>
-//     ))}
-//   </div>
-// );
 
 export default ItemList;

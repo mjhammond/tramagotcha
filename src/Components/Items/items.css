@@ -21,8 +21,12 @@
   padding: 5px;
   margin: 5px;
   font-weight: bold;
-  width: 50%;
-  height: 50vh;
+  width: 100%;
+  height: 2rem;
+}
+
+.purchased {
+    color: #b5b5b5;
 }
 
 .open {
