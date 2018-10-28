@@ -57,7 +57,11 @@ class Login extends React.Component {
                             <button
                                 className="button is-success"
                                 id="login-button"
-                                onClick={this.props.handleLoginClick}
+                                onClick={() =>
+                                    this.props.handleLoginClick({
+                                        username: this.state.username,
+                                        password: this.state.password,
+                                    })}
                             >
                                 Login
                             </button>

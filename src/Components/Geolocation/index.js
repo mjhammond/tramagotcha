@@ -38,7 +38,6 @@ class Geolocation extends React.Component {
   }
 
   componentDidMount() {
-    this.getGeolocation();
     const locationPoller = setInterval(this.getGeolocation.bind(this), 5000);
     this.locationPoller = locationPoller;
   }
