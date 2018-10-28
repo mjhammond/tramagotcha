@@ -1,8 +1,8 @@
 export default {
-  1: "./pixelsign.png",
-  2: "./chair.png",
-  3: "./piano.png",
-  4: "./food-trolley.png",
-  5: "./bed.png",
-  6: "./cat.jpg"
+  1: "./items/pixelsign.png",
+  2: "./items/chair.png",
+  3: "./items/piano.png",
+  4: "./items/food-trolley.png",
+  5: "./items/bed.png",
+  6: "./items/cat.jpg"
 };

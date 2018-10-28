@@ -26,15 +26,17 @@ class UserInfo extends React.Component {
         <span className="petName"> {userInfo.petName}</span>
         <section className="columns is-mobile is-gapless" id="userInfo">
           <section className="column">
-            <span className="userInfoSpan" id="level">
-              Level: {userInfo.currentLevel}
-            </span>
-            <span className="userInfoSpan" id="currency">
-              Currency: {userInfo.currentCurrency}
-            </span>
-            <span className="userInfoSpan" id="xp">
-              Xp: {userInfo.currentXp}
-            </span>
+            <div className="userData">
+                <span className="userInfoSpan" id="level">
+                Level: {userInfo.currentLevel}
+                </span>
+                <span className="userInfoSpan" id="currency">
+                Currency: {userInfo.currentCurrency}
+                </span>
+                <span className="userInfoSpan" id="xp">
+                Xp: {userInfo.currentXp}
+                </span>
+            </div>
           </section>
         </section>
         <span
