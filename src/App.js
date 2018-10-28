@@ -11,6 +11,16 @@ class App extends Component {
         this.handleLoginClick = this.handleLoginClick.bind(this);
     }
 
+    componentDidMount() {
+        const tramagotchaID = sessionStorage.getItem('tramagotchaID');
+        if (tramagotchaID) {
+            this.setState(() => ({
+                loggedIn: true,
+                userID: tramagotchaID
+            }));
+        }
+    }
+
     handleLoginClick({ username, password }) {
         console.log(username, password);
 
@@ -24,6 +34,7 @@ class App extends Component {
                     userID: res.data.userid,
                     loggedIn: true,
                 }));
+                sessionStorage.setItem('tramagotchaID', res.data.userid);
                 return res;
             })
             //   .then(json => console.log(JSON.stringify(json)))
